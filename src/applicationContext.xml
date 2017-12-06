@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" xmlns:tx="http://www.springframework.org/schema/tx">
+
+	<!-- 用户注册bean -->
+	<bean name="userDao" class="wz.daoImpl.UserDaoImpl"></bean>
+	<bean name="userBiz" class="wz.serviceImpl.UserBizImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean name="registAction" class="wz.action.RegistAction">
+		<property name="userBiz" ref="userBiz"></property>
+	</bean>
+	
+	<bean name="loginAction" class="wz.action.LoginAction">
+		<property name="userBiz" ref="userBiz"></property>
+	</bean>	
+	
+	<bean name="activeAction" class="wz.action.ActiveAction">
+		
+	</bean>
+	
+	<bean name="userAction" class="wz.action.UserAction">
+			<property name="userBiz" ref="userBiz"></property>
+	 </bean>
+	 
+	 <!-- 精华帖申请模块 -->
+	<bean name="bestPostDao" class="wz.daoImpl.BestPostDaoImpl">
+	</bean>
+	<bean id="bestPostBiz" class="wz.serviceImpl.BestPostBizImpl">
+		<property name="bestPostDao" ref="bestPostDao"></property>
+	</bean>
+	
+	<!-- 文章管理模块 -->
+	
+	<bean name="postDao" class="wz.daoImpl.PostDaoImpl">
+	</bean>
+	<bean id="postBiz" class="wz.serviceImpl.PostBizImpl">
+		<property name="postDao" ref="postDao"></property>
+	</bean>
+	<bean id="postAction" class="wz.action.PostAction">
+		<property name="postBiz" ref="postBiz"></property>
+		<property name="bestPostBiz" ref="bestPostBiz"></property>
+	</bean>
+	<bean id="moreAction" class="wz.action.MoreAction">
+		<property name="postBiz" ref="postBiz"></property>
+		<property name="mainForumBiz" ref="mainForumBiz"></property>
+	</bean>
+	<bean id="publishAction" class="wz.action.PublishPostAction">
+		<property name="postBiz" ref="postBiz"></property>
+	</bean>
+	
+	
+	<!-- 帖子搜索 -->
+	<bean id="postSearchAction" class="wz.action.SearchAction">
+		<property name="postBiz" ref="postBiz"></property>
+	</bean>
+	<!-- 回复模块属性注入 -->
+	<bean name="followcardDao" class="wz.daoImpl.FollowcardDaoImpl">
+	</bean>
+	<bean id="followcardBiz" class="wz.serviceImpl.FollowcardBizImpl">
+		<property name="followcardDao" ref="followcardDao"></property>
+	</bean>
+	<bean id="replyAction" class="wz.action.ReplyAction">
+		<property name="followcardBiz" ref="followcardBiz"></property>
+		<property name="postBiz" ref="postBiz"></property>
+	</bean>
+	
+	<bean name="mainForumDao" class="wz.daoImpl.MainForumDaoImpl"></bean>
+	<bean id="mainForumBiz" class="wz.serviceImpl.MainForumBizImpl">
+		<property name="mainDao" ref="mainForumDao"></property>
+	</bean>
+	
+	<!-- 封锁用户id模块 -->
+	<bean name="blackListDao" class="wz.daoImpl.BlackListDaoImpl">
+	</bean>
+	<bean id="blackListBiz" class="wz.serviceImpl.BlackListBizImpl">
+		<property name="blackListDao" ref="blackListDao"></property>
+	</bean>
+	<bean id="blAction" class="wz.action.LimitUserAction">
+		<property name="blackListBiz" ref="blackListBiz"></property>
+		<property name="userBiz" ref="userBiz"></property>
+	</bean>
+	
+	<!-- 板块创建 -->
+	<bean name="subForumDao" class="wz.daoImpl.SubForumDaoImpl">
+	</bean>
+	<bean id="subForumBiz" class="wz.serviceImpl.SubForumBizImpl">
+		<property name="subDao" ref="subForumDao"></property>
+	</bean>
+	<bean id="createDiscussAction" class="wz.action.CreateDiscussAction">
+		<property name="mainBiz" ref="mainForumBiz"></property>
+		<property name="subBiz" ref="subForumBiz"></property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 公告模块 -->
+	
+	<bean name="noticeDao" class="wz.daoImpl.NoticeDaoImpl"></bean>
+	<bean id="noticeBiz" class="wz.serviceImpl.NoticeBizImpl">
+		<property name="noticeDao" ref="noticeDao"></property>
+	</bean>
+	<bean id="noticeAction" class="wz.action.NoticeAction">
+		<property name="noticeBiz" ref="noticeBiz"></property>
+	</bean>
+	
+	
+	
+	<!-- 管理员模块 -->
+	<bean name="adminDao" class="wz.daoImpl.AdminDaoImpl"></bean>
+	<bean id="adminBiz" class="wz.serviceImpl.AdminBizImpl">
+		<property name="adminDao" ref="adminDao"></property>
+	</bean>
+	<bean id="adminAction" class="wz.action.AdminAction">
+		<property name="adminBiz" ref="adminBiz"></property>
+	</bean>
+	
+	</beans>
