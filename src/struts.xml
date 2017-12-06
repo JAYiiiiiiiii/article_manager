@@ -150,9 +150,6 @@
         <result name="error">/pages/error.jsp</result>
         <result name="input">/pages/error.jsp</result>
     </action>
-    <action name="limit" class="wz.action.LimitUserAction" method="limit">
-        <result name="success">/manage/limit.jsp</result>
-    </action>
 </package>
 
 
