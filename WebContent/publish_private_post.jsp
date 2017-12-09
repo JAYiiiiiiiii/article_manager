@@ -1,4 +1,5 @@
 <%@page import="wz.model.Post"%>
+<%@page import="wz.model.PrivatePost"%>
 <%@page import="org.apache.struts2.components.Else"%>
 <%@page import="wz.model.SubForum"%>
 <%@page import="wz.model.SubSubForum"%>
@@ -18,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta charset="UTF-8">
-<title>新建文章</title>
+<title>新建私有文章</title>
     <script type="text/javascript" src="component/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="js/publish-post.js"></script>
 
@@ -164,18 +165,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
  <jsp:include page="/pages/header.jsp"/>
  <table class="tb" cellspacing="0" cellpadding="3">
-  <%Post post = 	(Post)request.getAttribute("post"); %>
-  <%if (post== null) {%>
-  <form method="post" action="<%=path%>/publish.action">
+  <%PrivatePost privatePost = 	(PrivatePost)request.getAttribute("privatePost"); %>
+  <%if (privatePost== null) {%>
+  <form method="post" action="<%=path%>/publishPrivate.action">
   <%}else{ %>
-   <form method="post" action="<%=path%>/updatepost.action?postId=<%=post.getId()%>">
+   <form method="post" action="<%=path%>/updateprivatePost.action?privatePostId=<%=privatePost.getId()%>">
   <%} %>
               <tr>
             <th>文章标题</th>
             <td>
            
-            <%   if (post!=null){ %>
-                <input required type="text" id="textfile" name="title" value="<%=post.getTitle()%>" />
+            <%   if (privatePost!=null){ %>
+                <input required type="text" id="textfile" name="title" value="<%=privatePost.getTitle()%>" />
                 <%}else{ %>
                  <input required type="text" id="textfile" name="title" />
                 <%} %>
@@ -186,8 +187,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <tr>
             <th>文章内容</th>
             <td>
-               <%   if (post!=null){ %>
-                <textarea type="text" class="" name="content" id="ckeditor" ><%=post.getCardContent()%></textarea>
+               <%   if (privatePost!=null){ %>
+                <textarea type="text" class="" name="content" id="ckeditor" ><%=privatePost.getCardContent()%></textarea>
                  <%}else{ %>
                   <textarea type="text" class="" name="content" id="ckeditor"></textarea>
                    <%} %>

@@ -46,7 +46,38 @@
         <result name="success">/pages/change-info.jsp</result>
         <result name="error">/pages/error.jsp</result>
         <result name="input">/pages/error.jsp</result>
+        <interceptor-ref name="loginPermissionStack"></interceptor-ref>
     </action>
+    
+    <!-- 私有文章管理模块 -->
+    <action name="publishPrivate" class="wz.action.PublishPostAction" method="publishPrivate">
+        <result name="success">/pages/myprivatepost.jsp</result>
+        <result name="publish">/publish_private_post.jsp</result>
+        <result name="login">/login.jsp</result>
+        <result name="error">/pages/error.jsp</result>
+        <interceptor-ref name="loginPermissionStack"></interceptor-ref>
+    </action>
+    <!-- 发起编辑文章 -->
+    <action name="editprivatePost" class="wz.action.PostAction" method="editPrivatePost">
+        <result name="success">/publish_private_post.jsp</result>
+        <result name="error">/pages/error.jsp</result>
+    </action>
+      <!-- 编辑并提交到数据库 -->
+    <action name="updateprivatePost" class="wz.action.PublishPostAction" method="privateCommitEditor">
+        <result name="success">/pages/privatePost.jsp</result>
+        <result name="login">/login.jsp</result>
+        <result name="error">/pages/error.jsp</result>
+        <interceptor-ref name="loginPermissionStack"></interceptor-ref>
+    </action>
+    <!-- 删除 -->
+    <action name="userPrivatePostdelete" class="wz.action.PostAction" method="deletePrivate">
+        <result name="success">/pages/myprivatepost.jsp</result>
+        <result name="login">/login.jsp</result>
+        <result name="error">/pages/error.jsp</result>
+        <result name="input">/pages/error.jsp</result>
+        <interceptor-ref name="loginPermissionStack"></interceptor-ref>
+    </action>
+    
     
     <!-- 文章管理模块 -->
     
@@ -83,6 +114,23 @@
         <!-- 回复要登陆 -->
         <interceptor-ref name="loginPermissionStack"></interceptor-ref>
     </action>
+    <!-- 设置公开为私有 -->
+    <action name="pubToPri" class="wz.action.PublishPostAction" method="pubToPri">
+        <result name="success">/pages/mypost.jsp</result>
+        <result name="login">/login.jsp</result>
+        <result name="error">/pages/error.jsp</result>
+        <result name="input">/pages/error.jsp</result>
+        <interceptor-ref name="loginPermissionStack"></interceptor-ref>
+    </action>
+    
+    <!-- 设置私有为公开 -->
+    <action name="priToPub" class="wz.action.PublishPostAction" method="priToPub">
+        <result name="success">/pages/myprivatepost.jsp</result>
+        <result name="login">/login.jsp</result>
+        <result name="error">/pages/error.jsp</result>
+        <result name="input">/pages/error.jsp</result>
+        <interceptor-ref name="loginPermissionStack"></interceptor-ref>
+    </action>
     
     <!-- 分类浏览模块 -->
     <action name="more" class="wz.action.MoreAction">
@@ -96,8 +144,14 @@
         <result name="success">/pages/item.jsp</result>
         <result name="error">/pages/error.jsp</result>
     </action>
-    
-    
+    <!-- 用户删除文章 -->
+    <action name="userPostdelete" class="wz.action.PostAction" method="delete">
+        <result name="success">/pages/mypost.jsp</result>
+        <result name="login">/login.jsp</result>
+        <result name="error">/pages/error.jsp</result>
+        <result name="input">/pages/error.jsp</result>
+        <interceptor-ref name="loginPermissionStack"></interceptor-ref>
+    </action>
     
     <!-- 管理员模块 -->
     <!-- 删除文章 -->

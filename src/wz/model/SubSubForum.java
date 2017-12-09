@@ -16,6 +16,7 @@ public class SubSubForum implements java.io.Serializable {
 	private String title;
 	private String info;
 	private Set posts = new HashSet(0);
+	private Set privatePosts = new HashSet(0);
 
 	// Constructors
 
@@ -30,11 +31,12 @@ public class SubSubForum implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public SubSubForum(SubForum subForum, String title, String info, Set posts) {
+	public SubSubForum(SubForum subForum, String title, String info, Set posts, Set privatePosts) {
 		this.subForum = subForum;
 		this.title = title;
 		this.info = info;
 		this.posts = posts;
+		this.privatePosts = privatePosts;
 	}
 
 	// Property accessors
@@ -75,6 +77,20 @@ public class SubSubForum implements java.io.Serializable {
 
 	public void setInfo(String info) {
 		this.info = info;
+	}
+
+	/**
+	 * @return privatePosts
+	 */
+	public Set getPrivatePosts() {
+		return privatePosts;
+	}
+
+	/**
+	 * @param privatePosts 要设置的 privatePosts
+	 */
+	public void setPrivatePosts(Set privatePosts) {
+		this.privatePosts = privatePosts;
 	}
 
 	public Set getPosts() {

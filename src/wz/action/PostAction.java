@@ -2,12 +2,15 @@ package wz.action;
 
 import wz.model.BestPost;
 import wz.model.Post;
+import wz.model.PrivatePost;
 import wz.model.User;
 import wz.service.BestPostBiz;
 import wz.service.PostBiz;
+import wz.service.PrivatePostBiz;
 
 public class PostAction extends BaseAction{
 	private Integer postId;
+	private Integer privatePostId;
 	private int state;
 	private BestPostBiz bestPostBiz;
 	
@@ -28,8 +31,27 @@ public class PostAction extends BaseAction{
 		this.postId = postId;
 	}
 	private PostBiz postBiz;
+	private PrivatePostBiz privatePostBiz;
 	
 	
+	/**
+	 * @return privatePostId
+	 */
+	public Integer getPrivatePostId() {
+		return privatePostId;
+	}
+	/**
+	 * @param privatePostId 要设置的 privatePostId
+	 */
+	public void setPrivatePostId(Integer privatePostId) {
+		this.privatePostId = privatePostId;
+	}
+	/**
+	 * @param privatePostBiz 要设置的 privatePostBiz
+	 */
+	public void setPrivatePostBiz(PrivatePostBiz privatePostBiz) {
+		this.privatePostBiz = privatePostBiz;
+	}
 	public void setPostBiz(PostBiz postBiz) {
 		this.postBiz = postBiz;
 	}
@@ -96,6 +118,14 @@ public class PostAction extends BaseAction{
 		return ERROR;
 	}
 	
+	public String deletePrivate(){
+		if (privatePostId >0){
+			privatePostBiz.delete(privatePostId);
+			return SUCCESS;
+		}
+		return ERROR;
+	}
+	
 	/**
 	 * 编辑文章
 	 */
@@ -104,6 +134,15 @@ public class PostAction extends BaseAction{
 		if (postId>0){
 			Post post = postBiz.getPostById(postId);
 			getRequest().put("post", post);
+			return SUCCESS;
+		}
+		return ERROR;
+	}
+	
+	public String editPrivatePost(){
+		if (privatePostId>0){
+			PrivatePost privatePost = privatePostBiz.getPrivatePostById(privatePostId);
+			getRequest().put("privatePost", privatePost);
 			return SUCCESS;
 		}
 		return ERROR;

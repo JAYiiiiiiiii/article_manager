@@ -20,6 +20,7 @@
 
 		<mapping resource="wz/model/User.hbm.xml" />
 		<mapping resource="wz/model/Post.hbm.xml" />
+		<mapping resource="wz/model/PrivatePost.hbm.xml" />
 		<mapping resource="wz/model/Admin.hbm.xml" />
 		<mapping resource="wz/model/SubForum.hbm.xml" />
 		<mapping resource="wz/model/SubSubForum.hbm.xml" />

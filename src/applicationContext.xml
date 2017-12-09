@@ -33,6 +33,13 @@
 		<property name="bestPostDao" ref="bestPostDao"></property>
 	</bean>
 	
+	<!-- 私有文章管理模块 -->
+    <bean name="privatePostDao" class="wz.daoImpl.PrivatePostDaoImpl">
+    </bean>
+    <bean id="privatePostBiz" class="wz.serviceImpl.PrivatePostBizImpl">
+        <property name="privatePostDao" ref="privatePostDao"></property>
+    </bean>
+	
 	<!-- 文章管理模块 -->
 	
 	<bean name="postDao" class="wz.daoImpl.PostDaoImpl">
@@ -42,6 +49,7 @@
 	</bean>
 	<bean id="postAction" class="wz.action.PostAction">
 		<property name="postBiz" ref="postBiz"></property>
+		<property name="privatePostBiz" ref="privatePostBiz"></property>
 		<property name="bestPostBiz" ref="bestPostBiz"></property>
 	</bean>
 	<bean id="moreAction" class="wz.action.MoreAction">
@@ -50,7 +58,9 @@
 	</bean>
 	<bean id="publishAction" class="wz.action.PublishPostAction">
 		<property name="postBiz" ref="postBiz"></property>
+		<property name="privatePostBiz" ref="privatePostBiz"></property>
 	</bean>
+	
 	
 	
 	<!-- 帖子搜索 -->

@@ -26,6 +26,7 @@ public class User implements java.io.Serializable {
 	private Integer hasActive;
 	private Set bestPosts = new HashSet(0);
 	private Set posts = new HashSet(0);
+	private Set privatePosts = new HashSet(0);
 	private Set blackLists = new HashSet(0);
 	private Set followcards = new HashSet(0);
 
@@ -50,7 +51,7 @@ public class User implements java.io.Serializable {
 	public User(String username, String password, String sex, String photoUrl,
 			String email, Integer type, Timestamp registerDate,
 			String signature, Integer level, String activeCode,
-			Integer hasActive, Set bestPosts, Set posts, Set blackLists,
+			Integer hasActive, Set bestPosts, Set posts, Set privatePosts, Set blackLists,
 			Set followcards) {
 		this.username = username;
 		this.password = password;
@@ -65,6 +66,7 @@ public class User implements java.io.Serializable {
 		this.hasActive = hasActive;
 		this.bestPosts = bestPosts;
 		this.posts = posts;
+		this.privatePosts = privatePosts;
 		this.blackLists = blackLists;
 		this.followcards = followcards;
 	}
@@ -189,6 +191,20 @@ public class User implements java.io.Serializable {
 
 	public void setBlackLists(Set blackLists) {
 		this.blackLists = blackLists;
+	}
+
+	/**
+	 * @return privatePosts
+	 */
+	public Set getPrivatePosts() {
+		return privatePosts;
+	}
+
+	/**
+	 * @param privatePosts 要设置的 privatePosts
+	 */
+	public void setPrivatePosts(Set privatePosts) {
+		this.privatePosts = privatePosts;
 	}
 
 	public Set getFollowcards() {

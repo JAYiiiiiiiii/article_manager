@@ -32,11 +32,13 @@ return ;
     <div class="row">
         <div class="col-xs-3">
             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" ><a href="<%=path%>/pages/change-info.jsp">修改资料</a></li>
-                <li role="presentation" class="active"><a href="<%=path%>/pages/user_create_discuss.jsp">创建新文章分类</a></li>
+                 <li role="presentation" ><a href="<%=path%>/pages/change-info.jsp">更改个人信息</a></li>
+                <li role="presentation" class="active"><a href="<%=path%>/pages/user_create_discuss.jsp">新建文章分类</a></li>
                 <li role="presentation" ><a href="<%=path%>/pages/mypost.jsp">我的公开文章</a></li>
-                <li role="presentation"><a href="<%=path%>/pages/mypost.jsp">我的私有文章</a></li>
-                <li role="presentation"><a href="<%=path%>/pages/records.jsp">申请记录</a></li>
+                <li role="presentation"><a href="<%=path%>/pages/myprivatepost.jsp">我的私有文章</a></li>
+                <li role="presentation"><a href="<%=path+"/publish_post.jsp"%>">新建文章</a></li>
+                <li role="presentation"><a href="<%=path+"/publish_private_post.jsp"%>">新建私有文章</a></li>
+                <li role="presentation"><a href="<%=path%>/pages/records.jsp">精华文章申请记录</a></li>
             </ul>
         </div>
 

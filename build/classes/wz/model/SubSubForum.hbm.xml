@@ -25,5 +25,11 @@
             </key>
             <one-to-many class="wz.model.Post" />
         </set>
+        <set name="privatePosts" inverse="true" lazy="false">
+            <key>
+                <column name="forum" not-null="true" />
+            </key>
+            <one-to-many class="wz.model.PrivatePost" />
+        </set>
     </class>
 </hibernate-mapping>

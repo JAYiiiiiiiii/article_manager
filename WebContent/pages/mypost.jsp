@@ -39,11 +39,14 @@ if (session.getAttribute("username") == null){
     <div class="row">
         <div class="col-xs-3">
             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation" ><a href="<%=path%>/pages/change-info.jsp">修改资料</a></li>
+                <li role="presentation" ><a href="<%=path%>/pages/change-info.jsp">更改个人信息</a></li>
+                <li role="presentation" ><a href="<%=path%>/pages/user_create_discuss.jsp">新建文章分类</a></li>
                 <li role="presentation" class="active"><a href="<%=path%>/pages/mypost.jsp">我的公开文章</a></li>
-                <li role="presentation"><a href="<%=path%>/pages/mypost.jsp">我的私有文章</a></li>
-                <li role="presentation"><a href="<%=path%>/pages/records.jsp">申请记录</a></li>
-                <!--<li role="presentation"><a href="#">Messages</a></li>-->
+                <li role="presentation"><a href="<%=path%>/pages/myprivatepost.jsp">我的私有文章</a></li>
+                <li role="presentation"><a href="<%=path+"/publish_post.jsp"%>">新建文章</a></li>
+                <li role="presentation"><a href="<%=path+"/publish_private_post.jsp"%>">新建私有文章</a></li>
+                <li role="presentation"><a href="<%=path%>/pages/records.jsp">精华文章申请记录</a></li>
+
             </ul>
         </div>
 
@@ -72,9 +75,12 @@ if (session.getAttribute("username") == null){
                         <h4 class="list-group-item-heading" style="color:black">[<%=post.getTitle() %>]</h4>
                         <%=post.getSubSubForum().getTitle()%>
                     </a>
-                    <a href="<%=path%>/editpost.action?postId=<%=post.getId()%>" style="float: right">编辑</a>
+                    
+                    <a href="<%=path%>/userPostdelete.action?postId=<%=post.getId() %>" style="float: right">删除&nbsp;</a>
+                    <a href="<%=path%>/editpost.action?postId=<%=post.getId()%>" style="float: right">编辑&nbsp;</a>
+                    <a href="<%=path%>/pubToPri.action?postId=<%=post.getId()%>" style="float: right">设置私有&nbsp;</a>
                     <%if (post.getPostType() == 0 && !bestPostBiz.isExist(post.getId())) {%>
-                    <a href="<%=path%>/applybest.action?postId=<%=post.getId()%>" style="float: right">设置私有&nbsp;</a>
+                    <a href="<%=path%>/applybest.action?postId=<%=post.getId()%>" style="float: right">申请精华&nbsp;</a>
                     <%} %>
                     <p style="float: right;margin-right: 50px">浏览量:<%=post.getViewNum()%>&nbsp;评论量:<%=post.getReplyNum()%>&nbsp;发表日期:<%=post.getTime()%></p>
                 </div>
