@@ -14,7 +14,7 @@ public class BestPost implements java.io.Serializable {
 	private User user;
 	private Post post;
 	private Timestamp applyDate;
-	private Integer state;
+	private Integer state;  //1 表示尚未批准;2已经批准;3拒绝
 
 	// Constructors
 

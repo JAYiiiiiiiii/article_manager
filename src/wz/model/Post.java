@@ -10,11 +10,11 @@ public class Post implements java.io.Serializable {
 
 	private Integer id;
 	private User user;
-	private SubForum subForum;
+	private SubSubForum subSubForum;
 	private String title;
 	private String cardContent;
 	private Timestamp sendDate;
-	private Integer postType; //是否精品文章
+	private Integer postType; //是否精品文章 0不是精品文章 1精品文章
 	private Integer replyNum = 0;
 	private Integer viewNum = 0;
 	private Set bestPosts = new HashSet(0);
@@ -27,21 +27,21 @@ public class Post implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Post(User user, SubForum subForum, String title, String cardContent,
+	public Post(User user, SubSubForum subSubForum, String title, String cardContent,
 			Timestamp sendDate) {
 		this.user = user;
-		this.subForum = subForum;
+		this.subSubForum = subSubForum;
 		this.title = title;
 		this.cardContent = cardContent;
 		this.sendDate = sendDate;
 	}
 
 	/** full constructor */
-	public Post(User user, SubForum subForum, String title, String cardContent,
+	public Post(User user, SubSubForum subSubForum, String title, String cardContent,
 			Timestamp sendDate, Integer postType, Integer replyNum,
 			Integer viewNum, Set bestPosts, Set followcards) {
 		this.user = user;
-		this.subForum = subForum;
+		this.subSubForum = subSubForum;
 		this.title = title;
 		this.cardContent = cardContent;
 		this.sendDate = sendDate;
@@ -68,14 +68,6 @@ public class Post implements java.io.Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-	public SubForum getSubForum() {
-		return this.subForum;
-	}
-
-	public void setSubForum(SubForum subForum) {
-		this.subForum = subForum;
 	}
 
 	public String getTitle() {
@@ -148,6 +140,20 @@ public class Post implements java.io.Serializable {
 		if (index != -1)
 			return time.substring(0, index);
 		else return time;
+	}
+
+	/**
+	 * @return subSubForum
+	 */
+	public SubSubForum getSubSubForum() {
+		return subSubForum;
+	}
+
+	/**
+	 * @param subSubForum 要设置的 subSubForum
+	 */
+	public void setSubSubForum(SubSubForum subSubForum) {
+		this.subSubForum = subSubForum;
 	}
 
 }

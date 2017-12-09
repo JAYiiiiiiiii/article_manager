@@ -15,3 +15,7 @@ Group Member : JAYiiiiiiiii, Mia-San-Mia, treatest
 1. 完成在线编辑修改文章功能
 1. 添加管理员模块
 1. 完善之前的不足
+
+
+## 迭代二 2017/12/9进度：
+1. 完成三层目录结构，文章删除功能

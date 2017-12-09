@@ -9,23 +9,18 @@ import java.util.Set;
 import wz.model.Followcard;
 import wz.model.Post;
 
-/**
- * 帖子的数据库访问接口
- * @author 张建浩、卜凡、卢静、余莎、姚文娜
- * @version 1.0
- * 2016年3月16日下午1:35:35
- */
+
 public interface PostDao {
 	
 	/**
-	 * 向帖子表中增加一条记录
-	 * @param post 帖子
+	 * 向文章表中增加一条记录
+	 * @param post 文章
 	 */
 	public void pushlish(Post post);
 	
 	/**
-	 * 获取指定帖子的回复贴
-	 * @param postId 帖子id
+	 * 获取指定文章的回复贴
+	 * @param postId 文章id
 	 * @return 回复贴列表
 	 */
 //	public Set<Followcard> getFollowCards(int postId);
@@ -37,7 +32,7 @@ public interface PostDao {
 	public List<Post> getBestPosts(int pageIndex,int pageSize);
 	
 	/**
-	 * 分页查找最新发表的帖子
+	 * 分页查找最新发表的文章
 	 * @param pageIndex	页码，从1开始
 	 * @param pageSize 页面大小
 	 * @return
@@ -47,8 +42,8 @@ public interface PostDao {
 	public Post getPostById(int postId);
 
 	/**
-	 * 获取指定帖子的回复贴
-	 * @param postId 帖子id,页数，页面大小
+	 * 获取指定文章的回复贴
+	 * @param postId 文章id,页数，页面大小
 	 * @return 回复贴列表
 	 */
 	List<Followcard> getFollowCards(int postId, int pageIndex, int pageSize);

@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="col-md-8 post-content">
 
             <div class="post-title">
-                <h2 style="margin-left:20px;color:black">[<%=post.getTitle()%>]--所属分类：<%=post.getSubForum().getTitle()%></h2>
+                <h2 style="margin-left:20px;color:black">[<%=post.getTitle()%>]--所属分类：<%=post.getSubSubForum().getTitle()%></h2>
                 <div style="margin-left:20px" >
 
                     <span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;<%=post.getReplyNum() %> &nbsp;|&nbsp;<span>发表于:<%=post.getTime() %></span>

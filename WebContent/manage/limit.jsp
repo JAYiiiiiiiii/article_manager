@@ -40,8 +40,8 @@ return ;
             <ul class="nav nav-pills nav-stacked">
                 <li role="presentation" ><a href="<%=path%>/manage/notice.jsp">发布公告</a></li>
                 <li role="presentation" ><a href="<%=path%>/manage/change-admin.jsp">资料修改</a></li>
-                <li role="presentation"><a href="<%=path%>/manage/newpost.jsp">查看新帖</a></li>
-                <li role="presentation" ><a href="<%=path%>/manage/bestpost.jsp">精华帖请求</a></li>
+                <li role="presentation"><a href="<%=path%>/manage/newpost.jsp">查看新文章</a></li>
+                <li role="presentation" ><a href="<%=path%>/manage/bestpost.jsp">精华文章请求</a></li>
                  <li role="presentation" class="active"><a href="<%=path%>/manage/limit.jsp">封锁用户</a></li>
                   <li role="presentation"><a href="<%=path%>/manage/create_discuss.jsp">创建讨论区</a></li>
             </ul>
@@ -93,8 +93,8 @@ return ;
                         <ul class="dropdown-menu" role="menu">
                         	<li><a href="<%=path%>/limit.action?userId=<%=user.getId()%>&&level=-1&&keywords=<%=keywords%>">解除限制</a></li>
                             <li><a href="<%=path%>/limit.action?userId=<%=user.getId()%>&&level=4&&keywords=<%=keywords%>">限制回复</a></li>
-                            <li><a href="<%=path%>/limit.action?userId=<%=user.getId()%>&&level=3&&keywords=<%=keywords%>">限制发帖</a></li>
-                            <li><a href="<%=path%>/limit.action?userId=<%=user.getId()%>&&level=2&&keywords=<%=keywords%>">限制发帖与回复</a></li>
+                            <li><a href="<%=path%>/limit.action?userId=<%=user.getId()%>&&level=3&&keywords=<%=keywords%>">限制发文章</a></li>
+                            <li><a href="<%=path%>/limit.action?userId=<%=user.getId()%>&&level=2&&keywords=<%=keywords%>">限制发文章与回复</a></li>
                             <li><a href="<%=path%>/limit.action?userId=<%=user.getId()%>&&level=1&&keywords=<%=keywords%>">限制登陆</a></li>
                         </ul>
                     </div>
@@ -108,9 +108,9 @@ return ;
                         <%}else if (level == 1) {%>
                         禁止登陆
                         <%}else if (level == 2) {%>
-                        禁止发帖和回复
+                        禁止发文章和回复
                         <%}else if (level == 3) {%>
-                         禁止发帖
+                         禁止发文章
                         <%}else if (level == 4) {%>
                         禁止回复
                         <%}%>

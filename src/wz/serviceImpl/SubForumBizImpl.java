@@ -1,6 +1,9 @@
 package wz.serviceImpl;
 
+import java.util.List;
+
 import wz.dao.SubForumDao;
+import wz.model.MainForum;
 import wz.model.SubForum;
 import wz.service.SubForumBiz;
 
@@ -14,7 +17,10 @@ public class SubForumBizImpl implements SubForumBiz{
 	}
 
 
-
+	@Override
+	public List<SubForum> getAllSubForums() {
+		return subDao.findAll();
+	}
 	
 
 

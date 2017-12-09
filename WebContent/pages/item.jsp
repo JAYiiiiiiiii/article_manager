@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <h4 class="list-group-item-heading">
                 [<%=post.getTitle()%>]
             </h4>
-            <%=post.getSubForum().getMainForum().getTitle() %>：&nbsp<%=post.getSubForum().getTitle() %>
+            <%=post.getSubSubForum().getSubForum().getMainForum().getTitle() %>：&nbsp<%=post.getSubSubForum().getSubForum().getTitle() %>：&nbsp<%=post.getSubSubForum().getTitle() %>
             <p class="text-right post-date">浏览量:<%=post.getViewNum()%>&nbsp;评论量:<%=post.getReplyNum()%>&nbsp;发表日期:<%=post.getTime()%></p>
     </a>
     <%} %>

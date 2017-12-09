@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                placeholder="请输入密码"><s:fielderror fieldName="password"></s:fielderror>
       
 
-        <input id="confirm_password" type="password" class="form-control" name="password1" style="height: 40px;margin-top: 20px;"
+        <input id="confirm_password" type="password" class="form-control" name="confirm_password" style="height: 40px;margin-top: 20px;"
                placeholder="请重复密码">
                
                  <div style="margin-top: 10px;margin-left: 10px;">

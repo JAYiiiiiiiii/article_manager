@@ -67,7 +67,7 @@ return ;
                 <div class="list-group-item">
                     <a href="<%=path%>/pages/post.jsp?postId=<%=post.getId()%>&&page=1" style="color:grey">
                         <h4 class="list-group-item-heading" style="color:black">[<%=post.getTitle() %>]</h4>
-                        <%=post.getSubForum().getMainForum().getTitle()%>
+                        <%=post.getSubSubForum().getTitle()%>
                     </a>
                     <a href="<%=path%>/postdelete.action?postId=<%=post.getId() %>" style="float: right">删除</a>
                     <p style="float: right;margin-right: 50px">评论量:<%=post.getReplyNum()%>&nbsp;发表日期:<%=post.getTime()%></p>

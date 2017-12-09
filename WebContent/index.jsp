@@ -9,6 +9,7 @@
 <%@page import="wz.serviceImpl.PostBizImpl"%>
 <%@page import="wz.service.PostBiz"%>
 <%@page import="wz.model.SubForum"%>
+<%@page import="wz.model.SubSubForum"%>
 <%@page import="wz.model.MainForum"%>
 <%@page import="wz.service.MainForumBiz"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -104,7 +105,7 @@
                 
                 <a href="<%=request.getContextPath()%>/pages/post.jsp?postId=<%=post.getId()%>&&page=1" class="list-group-item">
                     <h4 class="list-group-item-heading">[<%=post.getTitle() %>]</h4>
-                    <%=post.getSubForum().getMainForum().getTitle()%><span class="badge">新</span>
+                    <%=post.getSubSubForum().getSubForum().getMainForum().getTitle()%><span class="badge">新</span>
                     <p class="text-right" style="float: right;margin-right: 20px">浏览量:<%=post.getViewNum()%>&nbsp;评论量:<%=post.getReplyNum()%>&nbsp;发表日期:<%=post.getTime()%></p>
                 </a>
 				<%}%>
@@ -132,7 +133,7 @@
             <div class="col-md-9" style="margin-left: 15px">
                 <ul class="list-group">
                     <div class="list-group-item active">
-                        精华帖
+                        精华文章
                         <a href="<%=request.getContextPath() %>/more.action?type=-2&&page=1" style="float: right;color: white">更多>></a>
                     </div>
                      <%
@@ -141,7 +142,7 @@
 				  	for (Post post:posts){
 				   %>
                     <a href="<%=request.getContextPath()%>/pages/post.jsp?postId=<%=post.getId()%>&&page=1" class="list-group-item">
-                        <h4 class="list-group-item-heading">[<%=post.getSubForum().getMainForum().getTitle()%>]</h4>
+                        <h4 class="list-group-item-heading">[<%=post.getSubSubForum().getSubForum().getMainForum().getTitle()%>]</h4>
                             <%=post.getTitle() %><span class="badge">热</span>
                         <p class="text-right" style="float: right;margin-right: 20px">浏览量:<%=post.getViewNum()%>&nbsp;评论量:<%=post.getReplyNum()%>&nbsp;发表日期:<%=post.getTime()%></p>
                     </a>

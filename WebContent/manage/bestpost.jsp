@@ -75,8 +75,8 @@ return ;
                
                 <div class="list-group-item">
                     <a href="<%=path%>/pages/post.jsp?postId=<%=post.getId()%>&&page=1" style="color:grey">
-                        <h4 class="list-group-item-heading" style="color:black">[<%=post.getSubForum().getMainForum().getTitle()%>]</h4>
-                        <%=post.getTitle() %>
+                        <h4 class="list-group-item-heading" style="color:black">[<%=post.getTitle() %>]</h4>
+                        <%=post.getSubSubForum().getTitle()%>
                     </a>
                     <a href="<%=path%>/replyapply.action?postId=<%=post.getId()%>&&state=3" style="float: right">&nbsp;拒绝</a>&nbsp;
                     <a href="<%=path%>/replyapply.action?postId=<%=post.getId()%>&&state=2" style="float: right">&nbsp;同意</a>

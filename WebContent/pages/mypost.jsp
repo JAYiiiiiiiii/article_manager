@@ -70,7 +70,7 @@ if (session.getAttribute("username") == null){
                 <div class="list-group-item">
                     <a href="<%=path%>/pages/post.jsp?postId=<%=post.getId()%>&&page=1" style="color:grey">
                         <h4 class="list-group-item-heading" style="color:black">[<%=post.getTitle() %>]</h4>
-                        <%=post.getSubForum().getMainForum().getTitle()%>
+                        <%=post.getSubSubForum().getTitle()%>
                     </a>
                     <a href="<%=path%>/editpost.action?postId=<%=post.getId()%>" style="float: right">编辑</a>
                     <%if (post.getPostType() == 0 && !bestPostBiz.isExist(post.getId())) {%>

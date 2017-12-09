@@ -15,13 +15,15 @@ public class SubForum implements java.io.Serializable {
 	private MainForum mainForum;
 	private String title;
 	private String info;
-	private Set posts = new HashSet(0);
+	private Set subSubForums = new HashSet(0);
 
 	// Constructors
 
 	/** default constructor */
 	public SubForum() {
 	}
+
+	
 
 	/** minimal constructor */
 	public SubForum(MainForum mainForum, String title) {
@@ -30,13 +32,27 @@ public class SubForum implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public SubForum(MainForum mainForum, String title, String info, Set posts) {
+	public SubForum(MainForum mainForum, String title, String info, Set subSubForums) {
 		this.mainForum = mainForum;
 		this.title = title;
 		this.info = info;
-		this.posts = posts;
+		this.subSubForums = subSubForums;
 	}
 
+	
+	/**
+	 * @return subSubForums
+	 */
+	public Set getSubSubForums() {
+		return subSubForums;
+	}
+
+	/**
+	 * @param subSubForums 要设置的 subSubForums
+	 */
+	public void setSubSubForums(Set subSubForums) {
+		this.subSubForums = subSubForums;
+	}
 	// Property accessors
 
 	public Integer getId() {
@@ -71,12 +87,5 @@ public class SubForum implements java.io.Serializable {
 		this.info = info;
 	}
 
-	public Set getPosts() {
-		return this.posts;
-	}
-
-	public void setPosts(Set posts) {
-		this.posts = posts;
-	}
 
 }

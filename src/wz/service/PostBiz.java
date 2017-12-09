@@ -12,14 +12,14 @@ public interface PostBiz {
 	public abstract void setPostDao(PostDao postDao);
 
 	/**
-	 * 向帖子表中增加一条记录
-	 * @param post 帖子
+	 * 向文章表中增加一条记录
+	 * @param post 文章
 	 */
 	public abstract void pushlish(Post post);
 
 	/**
-	 * 获取指定帖子的回复贴
-	 * @param postId 帖子id
+	 * 获取指定文章的回复贴
+	 * @param postId 文章id
 	 * @return 回复贴列表
 	 */
 	public abstract List<Followcard> getFollowCards(int postId,int pageIndex,int pageSize);
@@ -31,7 +31,7 @@ public interface PostBiz {
 	public abstract List<Post> getBestPosts(int pageIndex, int pageSize);
 
 	/**
-	 * 分页查找最新发表的帖子
+	 * 分页查找最新发表的文章
 	 * @param pageIndex	页码，从1开始
 	 * @param pageSize 页面大小
 	 * @return
@@ -49,7 +49,7 @@ public interface PostBiz {
 	public abstract void updateType(Integer postId);
 
 	public abstract void updatePost(int postId, String title, String content,
-			int mainForum, int subForum);
+			int mainForum, int subForum, int subSubForum);
 
 	void autoIncreaseViewNum(int postId);
 	List<Post> getHotPosts(int pageIndex, int pageSize); 

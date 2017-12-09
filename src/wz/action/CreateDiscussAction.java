@@ -8,20 +8,47 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import wz.model.MainForum;
 import wz.model.SubForum;
+import wz.model.SubSubForum;
 import wz.service.MainForumBiz;
 import wz.service.SubForumBiz;
+import wz.service.SubSubForumBiz;
 
 public class CreateDiscussAction extends BaseAction{
 	private String mainForum;
 	private String subForum;
+	private String subSubForum;
 	
 	private MainForumBiz mainBiz;
 	private SubForumBiz subBiz;
+	private SubSubForumBiz subSubBiz;
 	
 	
 	
 	
-	
+	/**
+	 * @return subSubForum
+	 */
+	public String getSubSubForum() {
+		return subSubForum;
+	}
+	/**
+	 * @param subSubForum 要设置的 subSubForum
+	 */
+	public void setSubSubForum(String subSubForum) {
+		this.subSubForum = subSubForum;
+	}
+	/**
+	 * @return subSubBiz
+	 */
+	public SubSubForumBiz getSubSubBiz() {
+		return subSubBiz;
+	}
+	/**
+	 * @param subSubBiz 要设置的 subSubBiz
+	 */
+	public void setSubSubBiz(SubSubForumBiz subSubBiz) {
+		this.subSubBiz = subSubBiz;
+	}
 	public MainForumBiz getMainBiz() {
 		return mainBiz;
 	}
@@ -51,7 +78,8 @@ public class CreateDiscussAction extends BaseAction{
 	@Override
 	public String execute() {
 		try {
-			if (mainForum != null &&mainForum.length()>0 && subForum != null && subForum.length()>0){
+			if (mainForum != null &&mainForum.length()>0 && subForum != null && subForum.length()>0
+				&& subSubForum != null && subSubForum.length()>0){
 				MainForum main = new MainForum();
 				main.setTitle(mainForum);
 				ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -61,8 +89,9 @@ public class CreateDiscussAction extends BaseAction{
 					this.addFieldError("create_result", "该目录已经存在");
 					return "create";
 				}
-					
-				String [] subf = subForum.split(",");
+				
+				String [] subf = subForum.split(";");
+				String [] subSubf = subSubForum.split(";");
 				int size = subf.length;
 				for (int i=0; i<size; i++){
 					System.out.println("子目录:"+subf[i]);
@@ -70,7 +99,17 @@ public class CreateDiscussAction extends BaseAction{
 					if (subBiz == null)
 						subBiz = (SubForumBiz)context.getBean("subForumBiz");
 					subBiz.add(sub);
+					String [] subSubf1 = subSubf[i].split(",");
+					int size1 = subSubf1.length;
+					for (int j=0; j<size1; j++){
+						System.out.println("子目录:"+subSubf[j]);
+						SubSubForum subSub = new SubSubForum(sub,subSubf1[j]);
+						if (subSubBiz == null)
+							subSubBiz = (SubSubForumBiz)context.getBean("subSubForumBiz");
+						subSubBiz.add(subSub);
+					}
 				}
+				
 				this.addFieldError("create_result", "创建成功");
 				return SUCCESS;
 			}

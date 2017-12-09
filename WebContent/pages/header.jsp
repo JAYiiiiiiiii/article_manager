@@ -95,7 +95,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="<%=path+"/pages/change-info.jsp"%>">更改个人信息</a></li>
-                            <li><a href="<%=path+"/pages/mypost.jsp?page=1"%>">我的文章</a></li>
+                            <li><a href="<%=path%>/pages/user_create_discuss.jsp">新建文章分类</a></li>
+                            <li><a href="<%=path+"/pages/mypost.jsp?page=1"%>">我的公开文章</a></li>
+                            <li><a href="<%=path+"/pages/mypost.jsp?page=1"%>">我的私有文章</a></li>
                             <li><a href="<%=path+"/publish_post.jsp"%>">新建文章</a></li>
                             <li class="divider"></li>
                             <li><a href="<%=path+"/logout.action"%>">退出登陆</a></li>

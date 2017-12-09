@@ -3,8 +3,8 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-if (session.getAttribute("adminname") == null){
-response.sendRedirect(path+"/manage/admin.jsp");
+if (session.getAttribute("username") == null){
+response.sendRedirect(path+"/login.jsp");
 return ;
 }
 %>
@@ -32,12 +32,11 @@ return ;
     <div class="row">
         <div class="col-xs-3">
             <ul class="nav nav-pills nav-stacked">
-                <li role="presentation"><a href="<%=path%>/manage/notice.jsp">发布公告</a></li>
-                <li role="presentation" ><a href="<%=path%>/manage/change-admin.jsp">修改资料</a></li>
-                <li role="presentation"><a href="<%=path%>/manage/newpost.jsp">查看新文章</a></li>
-                <li role="presentation"><a href="<%=path%>/manage/bestpost.jsp">精华文章申请</a></li>
-                <li role="presentation"  class="active"><a href="<%=path%>/manage/create_discuss.jsp">创建新文章分类</a></li>
-                <!--<li role="presentation"><a href="#">Messages</a></li>-->
+                <li role="presentation" ><a href="<%=path%>/pages/change-info.jsp">修改资料</a></li>
+                <li role="presentation" class="active"><a href="<%=path%>/pages/user_create_discuss.jsp">创建新文章分类</a></li>
+                <li role="presentation" ><a href="<%=path%>/pages/mypost.jsp">我的公开文章</a></li>
+                <li role="presentation"><a href="<%=path%>/pages/mypost.jsp">我的私有文章</a></li>
+                <li role="presentation"><a href="<%=path%>/pages/records.jsp">申请记录</a></li>
             </ul>
         </div>
 

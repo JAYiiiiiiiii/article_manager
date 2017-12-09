@@ -90,9 +90,15 @@
 	<bean id="subForumBiz" class="wz.serviceImpl.SubForumBizImpl">
 		<property name="subDao" ref="subForumDao"></property>
 	</bean>
+	<bean name="subSubForumDao" class="wz.daoImpl.SubSubForumDaoImpl">
+    </bean>
+    <bean id="subSubForumBiz" class="wz.serviceImpl.SubSubForumBizImpl">
+        <property name="subSubDao" ref="subSubForumDao"></property>
+    </bean>
 	<bean id="createDiscussAction" class="wz.action.CreateDiscussAction">
 		<property name="mainBiz" ref="mainForumBiz"></property>
 		<property name="subBiz" ref="subForumBiz"></property>
+		<property name="subSubBiz" ref="subSubForumBiz"></property>
 	</bean>
 	
 	

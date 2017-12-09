@@ -9,16 +9,11 @@ import wz.service.PostBiz;
 public class PostAction extends BaseAction{
 	private Integer postId;
 	private int state;
-	
+	private BestPostBiz bestPostBiz;
 	
 	public void setState(int state) {
 		this.state = state;
 	}
-	private BestPostBiz bestPostBiz;
-	
-	
-	
-
 	public void setBestPostBiz(BestPostBiz bestPostBiz) {
 		this.bestPostBiz = bestPostBiz;
 	}

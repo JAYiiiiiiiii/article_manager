@@ -1,8 +1,8 @@
 package wz.daoImpl;
 
-import wz.dao.SubForumDao;
+import wz.dao.SubSubForumDao;
 import wz.hibernate.factory.BaseHibernateDAO;
-import wz.model.SubForum;
+import wz.model.SubSubForum;
 
 import java.util.List;
 import java.util.Set;
@@ -26,9 +26,9 @@ import org.slf4j.LoggerFactory;
  * @see wz.model.SubForum
  * @author MyEclipse Persistence Tools
  */
-public class SubForumDaoImpl extends BaseHibernateDAO implements SubForumDao{
+public class SubSubForumDaoImpl extends BaseHibernateDAO implements SubSubForumDao{
 	private static final Logger log = LoggerFactory
-			.getLogger(SubForumDaoImpl.class);
+			.getLogger(SubSubForumDaoImpl.class);
 	// property constants
 	public static final String TITLE = "title";
 	public static final String INFO = "info";
@@ -37,8 +37,8 @@ public class SubForumDaoImpl extends BaseHibernateDAO implements SubForumDao{
 	 * @see wz.daoImpl.SubFormDaoImpl#save(wz.model.SubForum)
 	 */
 	@Override
-	public void save(SubForum transientInstance) {
-		log.debug("saving SubForum instance");
+	public void save(SubSubForum transientInstance) {
+		log.debug("saving SubSubForum instance");
 		try {
 			Session session = getSession();
 			Transaction transaction = session.beginTransaction();
@@ -52,20 +52,5 @@ public class SubForumDaoImpl extends BaseHibernateDAO implements SubForumDao{
 		}
 	}
 
-	public List findAll() {
-		log.debug("finding all SubForum instances");
-		try {
-			String queryString = "from SubForum";
-			Session session = getSession();
-			Query queryObject = session.createQuery(queryString);
-			List list = queryObject.list();
-			session.flush();
-			session.close();
-			return list;
-		} catch (RuntimeException re) {
-			log.error("find all failed", re);
-			throw re;
-		}
-	}
 	
 }

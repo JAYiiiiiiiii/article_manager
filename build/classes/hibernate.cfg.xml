@@ -22,6 +22,7 @@
 		<mapping resource="wz/model/Post.hbm.xml" />
 		<mapping resource="wz/model/Admin.hbm.xml" />
 		<mapping resource="wz/model/SubForum.hbm.xml" />
+		<mapping resource="wz/model/SubSubForum.hbm.xml" />
 		<mapping resource="wz/model/MainForum.hbm.xml" />
 		<mapping resource="wz/model/Followcard.hbm.xml" />
 		<mapping resource="wz/model/Notice.hbm.xml" />

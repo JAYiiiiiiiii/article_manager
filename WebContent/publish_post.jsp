@@ -1,8 +1,10 @@
 <%@page import="wz.model.Post"%>
 <%@page import="org.apache.struts2.components.Else"%>
 <%@page import="wz.model.SubForum"%>
+<%@page import="wz.model.SubSubForum"%>
 <%@page import="wz.model.MainForum"%>
 <%@page import="wz.service.MainForumBiz"%>
+<%@page import="wz.service.SubForumBiz"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@page import="org.springframework.context.support.ClassPathXmlApplicationContext"%>
 <%@page import="org.springframework.context.ApplicationContext"%>
@@ -19,6 +21,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>新建文章</title>
     <script type="text/javascript" src="component/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="js/publish-post.js"></script>
+
+    <script type="text/javascript">
+        function onselected1(obj){
+    
+            var mainForum = document.getElementById("mainforum");
+            var index = mainForum.selectedIndex;
+            var mainSelect = mainForum.options[index].value;
+            for (var i =0; i<mainForum.length; i++){
+            console.log("main:"+mainForum[i].value);
+            var value = mainForum[i].value;
+            var subForum = document.getElementById("subForum"+value);
+                for (var j =0; j<subForum.length; j++){
+                    
+                    var subValue = subForum[j].value;
+                    console.log("subValue:"+subValue);
+                    var subSubForum = document.getElementById("subSubForum"+subValue);
+                    subSubForum.style.display = "none";
+                    subSubForum.name="subSub"
+                    //console.log("subSubForum:"+subSub.value);
+                }
+            }
+
+            var subForumSelect = document.getElementById("subForum"+mainSelect);
+            var subIndex = subForumSelect.selectedIndex;
+            var subSelect = subForumSelect.options[subIndex].value;
+
+            var subSubForumSelect = document.getElementById("subSubForum"+subSelect);
+            subSubForumSelect.style.display = "";
+            subSubForumSelect.name = "subSubForum"
+    
+
+            //console.log("size:"+subForum.length);
+        }
+    </script>
+
     <style type="text/css">
         .tb {
             margin: 0 auto;
@@ -174,24 +211,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <option value=<%=mainForum.getId()%>><%=mainForum.getTitle() %></option>
                            <%} %>
                         </select>
-                    </a>
+                   
+                   
                      
                         <% int i=0;
                          for (MainForum mainForum:mainForums){
-                         if ( i==0){
-                        %>
-                          <select name="subForum" id="<%=mainForum.getId()%>">
-                          <%}else{ %>
-                          <select name="sub" id="<%=mainForum.getId()%>" style="display: none;">
-                           <%} %>
-                        <%
-                        Set<SubForum> subforms = mainForum.getSubForums();
-                        for (SubForum subForum:subforms){
-                         %>
-                           <option value="<%=subForum.getId()%>"><%=subForum.getTitle()%></option>
-                         <%}%>
-                          </select>
-                          <% i++;} %>
+                            if ( i==0){
+                            %>
+                            <select name="subForum" id="subForum<%=mainForum.getId()%>" style="" onchange="onselected1(this)">
+                            <%}else{ %>
+                            <select name="sub" id="subForum<%=mainForum.getId()%>" style="display: none;" onchange="onselected1(this)">
+                            <%} %>
+                            
+                                <%
+                                Set<SubForum> subforms = mainForum.getSubForums();
+                                for (SubForum subForum:subforms){
+                                %>
+                                <option value="<%=subForum.getId()%>"><%=subForum.getTitle()%></option>
+                                <%}%>
+                            </select>
+                            <% i++;}%>
+                          
+                       
+                          <% int j = 0;
+                          
+                              SubForumBiz subForumBiz = (SubForumBiz)context.getBean("subForumBiz");
+                  	          List<SubForum> subForums = subForumBiz.getAllSubForums();
+                              for (SubForum subForum:subForums){
+                                  
+                                      if ( j==0){
+                            %>
+                            <select name="subSubForum" id="subSubForum<%=subForum.getId()%>" style="">
+                            <%}else{ %>
+                            <select name="subSub" id="subSubForum<%=subForum.getId()%>" style="display: none;">
+                            <%} %>
+                            
+                            <% //以下为option
+                            Set<SubSubForum> subSubForums = subForum.getSubSubForums();
+                                      for(SubSubForum subSubForum : subSubForums){
+                                          %>
+                                <option value="<%=subSubForum.getId()%>"><%=subSubForum.getTitle()%></option>
+                                <%
+                                      }%>
+                            </select>
+                            <%
+                                      j++;
+                                    
+                                }
+                            
+                              %>
+                                     
+                          
+
                     <!--    
                     
                     -->

@@ -10,6 +10,7 @@ import wz.model.Followcard;
 import wz.model.MainForum;
 import wz.model.Post;
 import wz.model.SubForum;
+import wz.model.SubSubForum;
 import wz.service.PostBiz;
 
 public class PostBizImpl implements PostBiz {
@@ -95,7 +96,7 @@ public class PostBizImpl implements PostBiz {
 
 	@Override
 	public void updatePost(int postId, String title, String content,
-			int mainForum, int subForum) {
+			int mainForum, int subForum, int subSubForum) {
 		
 		Post post = postDao.getPostById(postId);
 		post.setTitle(title);
@@ -106,7 +107,10 @@ public class PostBizImpl implements PostBiz {
 		SubForum sub = new SubForum();
 		sub.setMainForum(mainForum2);
 		sub.setId(subForum);
-		post.setSubForum(sub);
+		SubSubForum subSub = new SubSubForum();
+		subSub.setSubForum(sub);
+		subSub.setId(subSubForum);
+		post.setSubSubForum(subSub);
 		postDao.updatePost(post);
 		
 		

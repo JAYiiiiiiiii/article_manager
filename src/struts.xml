@@ -114,6 +114,12 @@
         <result name="error">/pages/error.jsp</result>
         <result name="input">/pages/error.jsp</result>
     </action>
+    <action name="userCreatediscuss" class="wz.action.CreateDiscussAction">
+        <result name="success">/pages/user_create_discuss.jsp</result>
+        <result name="create">/pages/user_create_discuss.jsp</result>
+        <result name="error">/pages/error.jsp</result>
+        <result name="input">/pages/error.jsp</result>
+    </action>
     <action name="adminlogin" class="wz.action.AdminAction" method="login">
         <result name="success">/manage/notice.jsp</result>
         <result name="login">/manage/admin.jsp</result>

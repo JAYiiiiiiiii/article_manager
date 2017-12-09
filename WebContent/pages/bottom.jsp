@@ -24,11 +24,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div style="width: 400px;padding-top: 35px;padding-left:40px;padding-right: 40px;margin:auto;">
         <div>
             友情链接：
-            <a href="https://github.com/zhangjianhao" style="color: darkgray">&nbsp;github&nbsp;|&nbsp;</a>
-            <a href="http://www.csdn.net/" style="color: darkgray">csdn&nbsp;|&nbsp;</a>
-            <a href="http://www.oschina.net/" style="color: darkgray">开源中国&nbsp;|&nbsp;</a>
+            <a href="https://github.com" style="color: darkgray">&nbsp;github&nbsp;|&nbsp;</a>
+            <a href="http://www.hit.edu.cn" style="color: darkgray">HIT&nbsp;|&nbsp;</a>
+            <a href="http://www.cs.hit.edu.cn" style="color: darkgray">HITcs&nbsp;|&nbsp;</a>
             <a href="http://stackoverflow.com/" style="color: darkgray">stackflow</a><br>
-            小组成员：张建浩,卜凡,卢静,姚文娜,余莎
+            小组成员：王智，贺敏义，武诗杰
         </div>
 
 

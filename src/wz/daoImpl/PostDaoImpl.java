@@ -190,7 +190,7 @@ public class PostDaoImpl extends BaseHibernateDAO implements PostDao{
 	public List<Post> getPostByType(int type,int pageIndex,int pageSize){
 		if (type > 0){
 			Session session = getSession();
-			String sql = "from Post post where post.subForum.mainForum.id=?";
+			String sql = "from Post post where post.subSubForum.subForum.mainForum.id=?";
 			Query query = session.createQuery(sql);
 			query.setInteger(0, type);
 			int startIndex = (pageIndex -1) * pageSize;

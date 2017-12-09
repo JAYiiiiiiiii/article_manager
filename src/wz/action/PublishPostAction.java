@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import wz.model.MainForum;
 import wz.model.Post;
 import wz.model.SubForum;
+import wz.model.SubSubForum;
 import wz.model.User;
 import wz.service.BlackListBiz;
 import wz.service.PostBiz;
@@ -14,9 +15,17 @@ public class PublishPostAction extends BaseAction{
 	private String content;
 	private int mainForum;
 	private int subForum;
+	private int subSubForum;
 	private int postId;
 	
 	private PostBiz postBiz;
+
+	/**
+	 * @param subSubForum 要设置的 subSubForum
+	 */
+	public void setSubSubForum(int subSubForum) {
+		this.subSubForum = subSubForum;
+	}
 
 	public int getPostId() {
 		return postId;
@@ -55,12 +64,15 @@ public class PublishPostAction extends BaseAction{
 		Post post = new Post();
 		post.setTitle(title);
 		post.setCardContent(content);
-		SubForum subFrom = new SubForum();
-		subFrom.setId(subForum);
+		SubForum sub = new SubForum();
+		sub.setId(subForum);
 		MainForum main = new MainForum();
 		main.setId(mainForum);
-		subFrom.setMainForum(main);
-		post.setSubForum(subFrom);
+		sub.setMainForum(main);
+		SubSubForum subSub = new SubSubForum();
+		subSub.setId(subSubForum);
+		subSub.setSubForum(sub);
+		post.setSubSubForum(subSub);
 		User user  = new User();
 		user.setId((Integer)getSession().get("userId"));
 		post.setUser(user);
@@ -73,7 +85,7 @@ public class PublishPostAction extends BaseAction{
 	
 	public String commitEditor(){
 		if (postId>0){
-			postBiz.updatePost(postId,title,content,mainForum,subForum);
+			postBiz.updatePost(postId,title,content,mainForum,subForum,subSubForum);
 			//向文章显示页面传递参数
 			getRequest().put("postId", postId);
 			getRequest().put("page", 1);

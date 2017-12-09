@@ -37,7 +37,7 @@ return ;
                 <li role="presentation" class="active"><a href="<%=path%>/manage/notice.jsp">发布公告</a></li>
                 <li role="presentation" ><a href="<%=path%>/manage/change-admin.jsp">修改资料</a></li>
                 <li role="presentation"><a href="<%=path%>/manage/newpost.jsp">查看新文章</a></li>
-                <li role="presentation"><a href="<%=path%>/manage/bestpost.jsp">精华帖请求</a></li>
+                <li role="presentation"><a href="<%=path%>/manage/bestpost.jsp">精华文章申请</a></li>
                 <li role="presentation"><a href="<%=path%>/manage/create_discuss.jsp">创建新文章分类</a></li>
                 <!--<li role="presentation"><a href="#">Messages</a></li>-->
             </ul>

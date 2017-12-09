@@ -41,7 +41,7 @@ if (session.getAttribute("username") == null){
         <div class="col-xs-3">
             <ul class="nav nav-pills nav-stacked">
                 <li role="presentation" ><a href="<%=path%>/pages/change-info.jsp">资料修改</a></li>
-                <li role="presentation"><a href="<%=path%>/pages/mypost.jsp">我的帖子</a></li>
+                <li role="presentation"><a href="<%=path%>/pages/mypost.jsp">我的文章</a></li>
                 <li role="presentation" class="active"><a href="<%=path%>/pages/records.jsp">申请记录</a></li>
                 <!--<li role="presentation"><a href="#">Messages</a></li>-->
             </ul>
@@ -87,8 +87,8 @@ if (session.getAttribute("username") == null){
                
                 <div class="list-group-item">
                     <a href="<%=path%>/pages/post.jsp?postId=<%=post.getId()%>&&page=1" style="color:grey">
-                    <%SubForum sub = post.getSubForum();if (sub !=null && sub.getMainForum() !=null){%>
-                        <h4 class="list-group-item-heading" style="color:black">[<%=post.getSubForum().getMainForum().getTitle()%>]</h4>
+                    <%SubForum sub = post.getSubSubForum().getSubForum();if (sub !=null && sub.getMainForum() !=null){%>
+                        <h4 class="list-group-item-heading" style="color:black">[<%=post.getSubSubForum().getSubForum().getMainForum().getTitle()%>]</h4>
                         <%} %>
                         <%=post.getTitle() %>
                     </a>
