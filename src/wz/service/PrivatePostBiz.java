@@ -27,6 +27,14 @@ public interface PrivatePostBiz {
 			int mainForum, int subForum, int subSubForum);
 
 	void autoIncreaseViewNum(int privatePostId);
+
+	/**
+	 * @param keywords
+	 * @return
+	 */
+	public abstract List<PrivatePost> searchPrivatePostsByContent(String keywords);
+
+	
 	
 
 }

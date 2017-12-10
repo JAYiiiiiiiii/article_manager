@@ -42,6 +42,14 @@ public class PrivatePostBizImpl implements PrivatePostBiz {
 		return privatePostDao.search(keyword);
 		
 	}
+	
+	/**
+	 * @param keywords
+	 * @return
+	 */
+	public List<PrivatePost> searchPrivatePostsByContent(String keyword){
+		return privatePostDao.searchByContent(keyword);
+	}
 	@Override
 	public List<PrivatePost> getPrivatePostByUserId(int userId,int pageIndex,int pageSize){
 		return privatePostDao.getPrivatePostByUserId(userId,pageIndex,pageSize);

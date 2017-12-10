@@ -120,6 +120,16 @@ public class PrivatePostDaoImpl extends BaseHibernateDAO implements PrivatePostD
 //		session.close();
 //		return list;
 	}
+	public List<PrivatePost> searchByContent(String keyword){
+		Session session = getSession();
+		String sql = "from PrivatePost privatePost where privatePost.cardContent like ?";
+		Query query = session.createQuery(sql);
+		query.setString(0, '%'+keyword+'%');
+		List list = query.list();
+		session.flush();
+		session.close();
+		return list;
+	}
 
 	@Override
 	public List<PrivatePost> getPrivatePostByUserId(int userId,int pageIndex,int pageSize) {

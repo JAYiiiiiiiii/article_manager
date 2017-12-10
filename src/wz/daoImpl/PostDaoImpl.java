@@ -139,7 +139,20 @@ public class PostDaoImpl extends BaseHibernateDAO implements PostDao{
 //		return list;
 	}
 
-	
+	/**
+	 * @param keyword
+	 * @return
+	 */
+	public List<Post> searchByContent(String keyword){
+		Session session = getSession();
+		String sql = "from Post post where post.cardContent like ?";
+		Query query = session.createQuery(sql);
+		query.setString(0, '%'+keyword+'%');
+		List list = query.list();
+		session.flush();
+		session.close();
+		return list;
+	}
 	
 
 	

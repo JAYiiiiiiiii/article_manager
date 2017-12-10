@@ -52,7 +52,16 @@ public interface PostBiz {
 			int mainForum, int subForum, int subSubForum);
 
 	void autoIncreaseViewNum(int postId);
-	List<Post> getHotPosts(int pageIndex, int pageSize); 
+	List<Post> getHotPosts(int pageIndex, int pageSize);
+
+	/**
+	 * @param keywords
+	 * @return
+	 */
+	public abstract List<Post> searchPostsByContent(String keywords);
+
+
+	
 	
 
 }

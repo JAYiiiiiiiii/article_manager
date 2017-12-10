@@ -19,3 +19,6 @@ Group Member : JAYiiiiiiiii, Mia-San-Mia, treatest
 
 ## 迭代二 2017/12/9进度：
 1. 完成三层目录结构，文章删除功能
+
+## 迭代二 2017/12/10进度：
+1. 添加基本的搜索功能

@@ -139,11 +139,22 @@
     </action>
     
     <!--搜索模块 -->
-    <!--通过标题搜索 -->
+    
     <action name="search" class="wz.action.SearchAction">
         <result name="success">/pages/item.jsp</result>
         <result name="error">/pages/error.jsp</result>
     </action>
+    <!--通过标题搜索 -->
+    <action name="searchTitle" class="wz.action.SearchAction" method="searchTitle">
+        <result name="success">/pages/searchPage.jsp</result>
+        <result name="error">/pages/error.jsp</result>
+    </action>
+    <!--通过文章内容搜索 -->
+    <action name="searchContent" class="wz.action.SearchAction" method="searchContent">
+        <result name="success">/pages/searchContentPage.jsp</result>
+        <result name="error">/pages/error.jsp</result>
+    </action>
+    
     <!-- 用户删除文章 -->
     <action name="userPostdelete" class="wz.action.PostAction" method="delete">
         <result name="success">/pages/mypost.jsp</result>

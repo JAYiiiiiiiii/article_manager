@@ -28,7 +28,7 @@ return ;
   
   <body>
     <jsp:include page="/pages/header.jsp"/>
-  <div class="container" style="margin-top: 80px">
+  <div class="container" style="margin-top: 30px">
     <div class="row">
         <div class="col-xs-3">
             <ul class="nav nav-pills nav-stacked">

@@ -66,6 +66,7 @@
 	<!-- 帖子搜索 -->
 	<bean id="postSearchAction" class="wz.action.SearchAction">
 		<property name="postBiz" ref="postBiz"></property>
+		<property name="privatePostBiz" ref="privatePostBiz"></property>
 	</bean>
 	<!-- 回复模块属性注入 -->
 	<bean name="followcardDao" class="wz.daoImpl.FollowcardDaoImpl">

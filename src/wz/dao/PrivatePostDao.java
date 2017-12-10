@@ -39,4 +39,10 @@ public interface PrivatePostDao {
 
 	void autoIncreaseViewNum(int privatePostId);
 
+	/**
+	 * @param keyword
+	 * @return
+	 */
+	public List<PrivatePost> searchByContent(String keyword);
+
 }

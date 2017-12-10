@@ -100,6 +100,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <li><a href="<%=path+"/pages/myprivatepost.jsp?page=1"%>">我的私有文章</a></li>
                             <li><a href="<%=path+"/publish_post.jsp"%>">新建文章</a></li>
                             <li class="divider"></li>
+                            <li><a href="<%=path+"/pages/searchPage.jsp"%>">文章搜索</a></li>
+                            <li class="divider"></li>
                             <li><a href="<%=path+"/logout.action"%>">退出登陆</a></li>
                         </ul>
                     </li>

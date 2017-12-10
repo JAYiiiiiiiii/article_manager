@@ -63,6 +63,12 @@ public interface PostDao {
 
 	void autoIncreaseViewNum(int postId);
 
-	List<Post> getHotPosts(int pageIndex, int pageSize); 
+	List<Post> getHotPosts(int pageIndex, int pageSize);
+
+	/**
+	 * @param keyword
+	 * @return
+	 */
+	public List<Post> searchByContent(String keyword); 
 
 }
