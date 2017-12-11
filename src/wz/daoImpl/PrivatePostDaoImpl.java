@@ -131,6 +131,17 @@ public class PrivatePostDaoImpl extends BaseHibernateDAO implements PrivatePostD
 		return list;
 	}
 
+	public List<PrivatePost> searchByTime(String startTime, String endTime){
+		Session session = getSession();
+		String sql = "from PrivatePost privatePost where privatePost.sendDate>=? and privatePost.sendDate<?";
+		Query query = session.createQuery(sql);
+		query.setString(0, startTime);
+		query.setString(1, endTime);
+		List list = query.list();
+		session.flush();
+		session.close();
+		return list;
+	}
 	@Override
 	public List<PrivatePost> getPrivatePostByUserId(int userId,int pageIndex,int pageSize) {
 		Session session = getSession();

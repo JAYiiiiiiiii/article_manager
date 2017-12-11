@@ -60,6 +60,13 @@ public interface PostBiz {
 	 */
 	public abstract List<Post> searchPostsByContent(String keywords);
 
+	/**
+	 * @param startTime
+	 * @param endTime
+	 * @return
+	 */
+	public abstract List<Post> searchPostsByTime(String startTime, String endTime);
+
 
 	
 	

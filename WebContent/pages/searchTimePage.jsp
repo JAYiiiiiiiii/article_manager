@@ -47,12 +47,16 @@ if (session.getAttribute("username") == null){
             </ul>
             <br/>
 
-            <form role="search" action="<%=request.getContextPath()%>/searchContent.action">
+            <form role="search" action="<%=request.getContextPath()%>/searchTime.action">
 		       <div class="input-group">
 	         <input type="text" class="form-control" name="keywords" placeholder="search">
 	        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span> </span>
 	     		 </div>
       		</form> 
+
+            (起始时间和结束时间用分号割开 
+            <br/>
+            如: 2017-12-09 00:00:00;2017-12-9 23:51:00)
         </div>
 
         <div class="col-md-9">

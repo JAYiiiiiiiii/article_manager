@@ -34,6 +34,13 @@ public interface PrivatePostBiz {
 	 */
 	public abstract List<PrivatePost> searchPrivatePostsByContent(String keywords);
 
+	/**
+	 * @param startTime
+	 * @param endTime
+	 * @return
+	 */
+	public abstract List<PrivatePost> searchPrivatePostsByTime(String startTime, String endTime);
+
 	
 	
 

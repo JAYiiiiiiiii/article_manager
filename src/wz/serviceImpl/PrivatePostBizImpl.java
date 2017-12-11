@@ -50,6 +50,9 @@ public class PrivatePostBizImpl implements PrivatePostBiz {
 	public List<PrivatePost> searchPrivatePostsByContent(String keyword){
 		return privatePostDao.searchByContent(keyword);
 	}
+	public List<PrivatePost> searchPrivatePostsByTime(String startTime, String endTime){
+		return privatePostDao.searchByTime(startTime, endTime);
+	}
 	@Override
 	public List<PrivatePost> getPrivatePostByUserId(int userId,int pageIndex,int pageSize){
 		return privatePostDao.getPrivatePostByUserId(userId,pageIndex,pageSize);

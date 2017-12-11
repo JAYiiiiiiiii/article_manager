@@ -69,6 +69,13 @@ public interface PostDao {
 	 * @param keyword
 	 * @return
 	 */
-	public List<Post> searchByContent(String keyword); 
+	public List<Post> searchByContent(String keyword);
+
+	/**
+	 * @param startTime
+	 * @param endTime
+	 * @return
+	 */
+	public List<Post> searchByByTime(String startTime, String endTime); 
 
 }

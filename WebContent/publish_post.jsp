@@ -191,7 +191,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  <%}else{ %>
                   <textarea type="text" class="" name="content" id="ckeditor"></textarea>
                    <%} %>
-                <span style="float: right;">最多输入25000个字符</span>
+                <span style="float: right;">最多输入7500个字符</span>
             </td>
         </tr>
         <tr>

@@ -75,6 +75,9 @@ public class PostBizImpl implements PostBiz {
 	public List<Post> searchPostsByContent(String keyword){
 		return postDao.searchByContent(keyword);
 	}
+	public List<Post> searchPostsByTime(String startTime, String endTime){
+		return postDao.searchByByTime(startTime, endTime);
+	}
 	public List<Post> getPostByType(int type,int pageIndex,int pageSize){
 		return postDao.getPostByType(type, pageIndex, pageSize);
 	}

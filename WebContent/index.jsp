@@ -51,20 +51,20 @@
                 </ol>
 
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
+                <div class="carousel-inner" role="listbox" align="center">
                     <div class="item active">
-                        <img src="img/2.jpg" alt="...">
+                        <img src="img/1.jpg" alt="图片未加载">
                         <div class="carousel-caption">
                         </div>
                     </div>
                     <div class="item">
-                        <img src="img/1.jpg" alt="...">
+                        <img src="img/2.jpg" alt="图片未加载">
                         <div class="carousel-caption">
                         </div>
                     </div>
 
                     <div class="item">
-                        <img src="img/2.jpg" alt="...">
+                        <img src="img/3.jpg" alt="图片未加载">
                         <div class="carousel-caption">
                         </div>
                     </div>

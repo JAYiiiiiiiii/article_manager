@@ -53,5 +53,25 @@ public class SearchAction extends BaseAction{
 		getRequest().put("privatePosts", privatePosts);
 		return SUCCESS;
 	}
+	
+	public String searchTime() {
+		try {
+			//keywords = new String(keywords.getBytes("iso8859-1"),"utf-8");
+			System.out.println(keywords);
+			String [] times = keywords.split(";");
+			String startTime = times[0];
+			String endTime = times[1];
+			List<Post> posts = postBiz.searchPostsByTime(startTime, endTime);
+			List<PrivatePost> privatePosts = privatePostBiz.searchPrivatePostsByTime(startTime, endTime);
+			getRequest().put("posts", posts);
+			getRequest().put("privatePosts", privatePosts);
+			return SUCCESS;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
+		
+	}
 
 }

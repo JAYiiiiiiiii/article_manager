@@ -45,4 +45,11 @@ public interface PrivatePostDao {
 	 */
 	public List<PrivatePost> searchByContent(String keyword);
 
+	/**
+	 * @param startTime
+	 * @param endTime
+	 * @return
+	 */
+	public List<PrivatePost> searchByTime(String startTime, String endTime);
+
 }

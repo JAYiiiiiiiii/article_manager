@@ -154,7 +154,18 @@ public class PostDaoImpl extends BaseHibernateDAO implements PostDao{
 		return list;
 	}
 	
-
+	public List<Post> searchByByTime(String startTime, String endTime){
+		Session session = getSession();
+		String sql = "from Post post where post.sendDate>=? and post.sendDate<?";
+		Query query = session.createQuery(sql);
+		query.setString(0, startTime);
+		query.setString(1, endTime);
+		System.out.println(sql);
+		List list = query.list();
+		session.flush();
+		session.close();
+		return list;
+	}
 	
 	@Override
 	public List<Post> getLatestPosts(int pageIndex, int pageSize) {

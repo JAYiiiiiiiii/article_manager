@@ -154,6 +154,11 @@
         <result name="success">/pages/searchContentPage.jsp</result>
         <result name="error">/pages/error.jsp</result>
     </action>
+     <!--通过文章发表时间搜索 -->
+    <action name="searchTime" class="wz.action.SearchAction" method="searchTime">
+        <result name="success">/pages/searchTimePage.jsp</result>
+        <result name="error">/pages/error.jsp</result>
+    </action>
     
     <!-- 用户删除文章 -->
     <action name="userPostdelete" class="wz.action.PostAction" method="delete">
