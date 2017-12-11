@@ -2,6 +2,8 @@
 2017se@hit  
 Group Member : JAYiiiiiiiii, Mia-San-Mia, treatest  
 
+## 迭代一之前的代码忘记推送。。。。。。。
+
 ## 迭代一完成任务：
 1. 完成基本的页面框架
 2. 根据标题，作者，文章类型查询  
