@@ -98,7 +98,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <li><a href="<%=path%>/pages/user_create_discuss.jsp">新建文章分类</a></li>
                             <li><a href="<%=path+"/pages/mypost.jsp?page=1"%>">我的公开文章</a></li>
                             <li><a href="<%=path+"/pages/myprivatepost.jsp?page=1"%>">我的私有文章</a></li>
-                            <li><a href="<%=path+"/publish_post.jsp"%>">新建文章</a></li>
+                            <li><a href="<%=path+"/publish_post.jsp"%>">新建公开文章</a></li>
+                            <li><a href="<%=path+"/publish_private_post.jsp"%>">新建私有文章</a></li>
                             <li class="divider"></li>
                             <li><a href="<%=path+"/pages/searchPage.jsp"%>">文章搜索</a></li>
                             <li class="divider"></li>

@@ -126,7 +126,9 @@
                          <a href="<%=request.getContextPath()%>/pages/notice.jsp?noticeId=<%=notice.getId() %>" class="list-group-item"><%=notice.getTitle()%></a>
                     <%} %>
             </ul>
-               <a href="<%=request.getContextPath()%>/publish_post.jsp" ><button type="button" class="btn btn-primary" style="width: 200px;height:50px;margin-left: 30px">新建文章</button></a>
+               <a href="<%=request.getContextPath()%>/publish_post.jsp" ><button type="button" class="btn btn-primary" style="width: 200px;height:50px;margin-left: 30px">新建公开文章</button></a>
+               <br/> <br/> <br/>
+               <a href="<%=request.getContextPath()%>/publish_private_post.jsp" ><button type="button" class="btn btn-primary" style="width: 200px;height:50px;margin-left: 30px">新建私有文章</button></a>
         </div>
 
         <div class="row">
